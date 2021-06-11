@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+	<!-- Mystyle -->
+	<link rel="stylesheet" href="/root/public/css/edit.css">
+	<!-- Mystyle -->
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+
+
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+		</script>
+
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+	<title>Edit</title>
+</head>
+
+<body>
+	<div class="row">
+
+		<!-- navbar -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+			<div class="container">
+				<a class="navbar-brand mb-0 fs-3" href="#">SMAN 69</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+					aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavDropdown">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								<span class="" id="avatars">
+									Admin
+								</span>
+								
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/root/public/index.html">Home</a></li>
+								<li>
+									<hr class="dropdown-divider">
+								</li>
+								<li><a class="dropdown-item" href="#" id="logout">Logout <span><svg xmlns="http://www.w3.org/2000/svg" width="16"
+												height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+												<path fill-rule="evenodd"
+													d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+												<path fill-rule="evenodd"
+													d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+											</svg></span></a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- navbar -->
+	</div>
+
+	<div class="row user-info justify-content-center">
+		<div class="col-md-8">
+
+			<div class="mt-5 image-frame">
+				<a href="#">
+					<img src="" alt="" id="img-profile">
+				</a>
+			</div>
+
+			<div class="col-md-10 bio mt-5 ">
+				<h1 class="text-center">Bio :</h1>
+				<br>
+				<!-- table info -->
+				<div class="table-responsive">
+					<table class="table">
+						<!-- <thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">First</th>
+							<th scope="col">Last</th>
+							<th scope="col">Handle</th>
+						</tr>
+					</thead> -->
+						<tbody>
+							<tr>
+								<th scope="row">PegID :</th>
+								<td><input type="text" name="" id="id-field" class="form-control"></td>
+							</tr>
+							<tr>
+								<th scope="row">Nama Lengkap :</th>
+								<td><input type="text" name="" id="name-field" class="form-control"></td>
+							</tr>
+							<tr>
+								<th scope=" row">No.Handphone :</th>
+								<td><input type="text" name="" id="phone-field" class="form-control"></td>
+							</tr>
+							<tr>
+								<th scope="row">Subject :</th>
+								<td><input type="text" name="" id="subject-field" class="form-control"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- table info -->
+				<div class="button-update d-grid text-center mt-5">
+					<button class="btn btn-primary text-center" id="up-btn">Update</button>
+				</div>
+			</div>
+		</div>
+		<!-- Image Profile Section -->
+
+<!-- Modal -->
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="modal fade" id="myModal">
+				<div class="modal-dialog modal-dialog-centered modal-md">
+					<div class="modal-content">
+
+						<div class="modal-header">
+							<h2>Pop-up</h2>
+						</div>
+
+						<div class="modal-body">
+						 <div class="fs-5 mb-2 ms-4">
+							<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-check-circle-fill text-success" viewBox="0 0 16 16">
+								<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+							</svg> <span class="ms-2 mb-1">Update berhasil!</span>
+						 </div>
+						</div>
+
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal -->
+
+
+
+
+		<!-- Input Form -->
+		<!-- <section id="inputForm">
+
+		<div class="container-fluid edit-margin">
+			<div class="row justify-content-center">
+				<div class="col-md-8 form-group">
+					<h3 class="regist-text text-center fs-3">Update Form</h3>
+					<form action="">
+							<div class="row ">
+								<div class="col-md-6">
+									<label for="">PegID</label>
+									<input id="idbox" type="text" class="form-control">
+
+									<label for="">Nama Lengkap</label>
+									<input id="fullnamebox" type="text" class="form-control">
+
+									<label for="">Mata Pelajaran</label>
+									<input id="subjectbox" type="text" class="form-control" placeholder="Fisika, Kimia,Geografi...">
+									<br>
+								</div>
+
+								<div class="col-md-6">
+									<label for="">No.HP</label>
+									<input id="phonebox" type="text" class="form-control">
+
+									<label for="">Gelar pendidikan (depan)</label>
+									<input id="gelar1box" type="text" class="form-control">
+
+									<label for="">Gelar pendidikan (belakang)</label>
+									<input id="gelar2box" type="text" class="form-control">
+									<br>
+								</div>
+							</div>
+							<label for="">Pas Foto <span class="ukuran">(max : 2Mb)</span></label>
+							<input type="file" onchange="chooseFile(event)" name="" id="fileinput" class="form-control">
+							<br>
+							<div class="button text-center">
+								<button type="button" class="btn btn-success " id="insert">Input</button>
+								<button type="button" class="btn btn-primary " id="update">Ubah</button>
+								<button type="button" class="btn btn-danger" id="delete">Hapus</button>
+							</div>
+						
+					</form>
+
+				</div>
+			</div>
+	</section> -->
+		<!-- Input Form -->
+
+		<!-- waves section -->
+		<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+		<path fill="#0d6efd" fill-opacity="1"
+			d="M0,128L30,149.3C60,171,120,213,180,213.3C240,213,300,171,360,149.3C420,128,480,128,540,160C600,192,660,256,720,288C780,320,840,320,900,282.7C960,245,1020,171,1080,165.3C1140,160,1200,224,1260,208C1320,192,1380,96,1410,48L1440,0L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z">
+		</path>
+	</svg> -->
+		<!-- waves section -->
+
+		<!-----------------------------------Script-------------------------->
+		<script src="/root/public/configFirebase.js"></script>
+		<script src="/root/public/script/edit.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+			crossorigin="anonymous"></script>
+
+		<!-----------------------------------Script-------------------------->
+
+
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+	<!-- Mystyle -->
+	<link rel="stylesheet" href="/root/public/css/signup.css">
+	<!-- Mystyle -->
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+
+
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+		</script>
+
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+	<title>SignUp</title>
+</head>
+
+<body>
+
+		<!-- navbar -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+			<div class="container">
+				<a class="navbar-brand mb-0 fs-3" href="#">SMAN 69</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+					aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavDropdown">
+					<ul class="navbar-nav ms-auto" id="profile-info" >
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								<span class = "fs-6" id="avatars">
+									Admin
+								</span>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/root/public/index.html">Home</a></li>
+								<li>
+									<hr class="dropdown-divider">
+								</li>
+								<li><a class="dropdown-item" href="#" id="sign-out">Logout <span><svg xmlns="http://www.w3.org/2000/svg" width="16"
+												height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+												<path fill-rule="evenodd"
+													d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+												<path fill-rule="evenodd"
+													d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+											</svg></span></a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- navbar -->
+
+		<!-- Progress bar -->
+	<div class="progress " style="height: 4px;">
+		<div class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+	  </div>
+	<!-- Progress bar -->
+
+
+
+	<!-- SignUp Form -->
+	<section id="signup">
+		<div class="container-fluid sign-up">
+			<div class="row justify-content-center">
+				<h3 class="regist-text text-center">Sign Up</h3>
+				<div class="col-md-5">
+					<form>
+
+						<label for="exampleInputEmail" class="form-label mt-2">Email</label>
+						<input type="email" name="" id="input-email" class="form-control">
+
+						<label for="exampleInputID" class="form-label mt-2">PegID</label>
+						<input type="text" name="" id="input-id" class="form-control">
+
+						<label for="exampleInputNama" class="form-label mt-2">Nama Lengkap</label>
+						<input type="text" name="" id="input-nama" class="form-control">
+
+						<label for="exampleInputSub" class="form-label mt-2">Subject</label>
+						<input type="text" name="" id="input-subject" class="form-control">
+
+						<label for="exampleInputNomer" class="form-label mt-2">No.Hp</label>
+						<input type="text" name="" id="input-nomer" class="form-control">
+
+						<label for="exampleInputPassword" class="form-label mt-2">Password</label>
+						<input type="password" name="" id="input-password" class="form-control">
+
+						<label for="" class="form-label mt-3">Pas Foto <span class="ukuran">(max : 2Mb)</span></label>
+						<input type="file" name="" id="image-profile" class="form-control mt-2">
+
+						<div class="button text-center d-grid gap-2">
+							<button class="btn btn-success mt-3" id="submit">Sign Up</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- SignUp Form -->
+
+<!-- Modal -->
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="modal fade" id="myModal">
+				<div class="modal-dialog modal-dialog-centered modal-md">
+					<div class="modal-content">
+
+						<div class="modal-header">
+							<h2>Pop-up</h2>
+						</div>
+
+						<div class="modal-body">
+						 <div class="fs-5 mb-2 ms-4">
+							<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-check-circle-fill text-success" viewBox="0 0 16 16">
+								<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+							</svg> <span class="ms-2 mb-1">Data sedang disiapkan!</span>
+						 </div>
+						</div>
+
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal -->
+
+
+	<!-- My script -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+		crossorigin="anonymous"></script>
+	<script src="/root/public/script/signUp.js"></script>
+	<script src="/root/public/configFirebase.js"></script>
+	<!-- My script -->
+
+
+</body>
+
+<footer class="">
+	<!-- waves section -->
+
+
+		
+	<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+		<path fill="#0d6efd" fill-opacity="1"
+			d="M0,224L20,234.7C40,245,80,267,120,240C160,213,200,139,240,138.7C280,139,320,213,360,224C400,235,440,181,480,138.7C520,96,560,64,600,69.3C640,75,680,117,720,160C760,203,800,245,840,266.7C880,288,920,288,960,272C1000,256,1040,224,1080,208C1120,192,1160,192,1200,213.3C1240,235,1280,277,1320,261.3C1360,245,1400,171,1420,133.3L1440,96L1440,320L1420,320C1400,320,1360,320,1320,320C1280,320,1240,320,1200,320C1160,320,1120,320,1080,320C1040,320,1000,320,960,320C920,320,880,320,840,320C800,320,760,320,720,320C680,320,640,320,600,320C560,320,520,320,480,320C440,320,400,320,360,320C320,320,280,320,240,320C200,320,160,320,120,320C80,320,40,320,20,320L0,320Z">
+		</path>
+	</svg></div> -->
+
+
+<!-- waves section -->
+
+
+</footer>
+
+</html>
