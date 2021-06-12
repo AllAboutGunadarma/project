@@ -60,7 +60,7 @@ $(document).ready(function () {
 			$('#phone-field').val(``);
 			$('#subject-field').val(``);
 
-			window.location.assign('/root/public/pages/login.html');
+			window.location.assign('/public/pages/login.html');
 		})
 	});
 

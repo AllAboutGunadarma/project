@@ -70,7 +70,7 @@ $(document).ready(function () {
 
 								alert('Pendaftaran Berhasil');
 						}).then(() => {
-							window.location.assign('/root/public/pages/edit.html');
+							window.location.assign('/public/pages/edit.html');
 						});
 					}
 				);

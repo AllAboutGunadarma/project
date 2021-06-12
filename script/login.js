@@ -9,7 +9,7 @@ $(document).ready(function () {
     
        auth.signInWithEmailAndPassword(email,password).then(cred=>{
            alert('Login Berhasil !');
-           window.location.assign('/root/public/pages/edit.html')
+           window.location.assign('/public/pages/edit.html')
        }).catch(e=>{
            alert('Password atau Username salah !')
        })
